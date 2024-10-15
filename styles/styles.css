@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: sans-serif;
+    background-color: #acdcf0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    color: #336699;
+    height: auto;
+}
+
+nav > .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.nav-subcontainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav p {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger > div {
+    background-color: #336699;
+    width: 30px;
+    height: 5px;
+}
+
+.burger-exit {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: gray;
+}
+
+.mobile-menu {
+    transform: translateX(-100%);
+    opacity: 0;
+    background-color: white;
+    width: 70vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 0 2px black;
+}
+
+.mobile-menu.visible {
+    transform: translateX(0); 
+    opacity: 1;
+}
+
+.mobile-menu li {
+    padding: 1rem 0;
+    margin: auto 2rem;
+    font-size: 1rem;
+    width: 90%;
+    border-bottom: 1px solid gainsboro;
+}
+
+.close-space {
+    z-index: 9;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: none;
+}
+
+.menu {
+    display: none;
+}
+
+.menu a {
+    color: #336699;
+}
+
+.menu a:hover {
+    color: #78a8d7;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    padding: 4px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #336699;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    display: none;
+    background-color: white;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+.dropdown-content > li {
+    padding: 10px;
+    border-bottom: 1px solid #336699;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content > li:hover {
+    background-color: #336699;
+
+    a {
+      color: white;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
+}
+
+.link:hover {
+    background-color: #F0F0F0;
+}
+
+.link > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sublist > li {
+    font-size: 0.75rem;
+    padding: 5px 0;
+}
+
+.search-form {
+    text-align: center;
+}
+
+.search-bar, .search-btn {
+    margin: 0.5rem 0 0.5rem;
+    height: 1.5rem;
+    border-radius: 2px;
+    border: 2px solid #336699;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 0 0.5rem;
+}
+
+.search-btn {
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+.search-btn:hover {
+    background-color: #336699;
+    color: white;
+}
+
+main {
+    margin: 3rem auto 0;
+    padding: 2rem 1rem;
+    min-height: 80vh;
+    width: 90%;
+    background-color: #dafcff;
+}
+
+footer {
+    background-color: white;
+    color: #336699;
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+}
+
+footer > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-btn {
+    background-color: #336699;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.25s ease-out;
+}
+
+.login-btn:hover {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #336699;
+
+    a {
+        color:#336699;
+    }
+}
+
+.login-btn > a {
+    color: white;
+    font-weight: 600;
+    transition: 0.25s ease-out;
+}
+
+@keyframes menu-slide-on {
+    from {
+        transform: translateX(-100%);
+        display: none;
+    }
+    to {
+        transform: translateX(0);
+        display: block;
+    }
+}
+
+@keyframes menu-slide-off {
+    from {
+        transform: translateX(0);
+        display: block;
+    }
+    to {
+        transform: translateX(-100%);
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    nav > div {
+        width: 80%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #336699;
+        font-weight: 600;
+    }
+    
+
+    main {
+        width: 80%;
+    }
+
+    footer {
+        padding: 2rem;
+    }
+
+    footer > ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3rem;
+    }
+}
